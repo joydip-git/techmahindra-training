@@ -1,0 +1,7 @@
+1. product model: id, name, price, description
+2. certain operations:
+   a. add a new product (will be added into an array)
+   b. search for products by name (partial) -- array
+   c. delete a product (id)
+   d. update a product (id, product)
+	
