@@ -1,0 +1,37 @@
+ECMAScript
+javascript + typescript
+
+basic
+prototype based programming in JS
+this and lexical scope
+promises
+hoisting - variable + function
+
+execution context
+
+ES6--ES10
+
+JS/TS HTML??? No
+
+JS runtime out of browser
+Node JS 
+Express JS
+
+application structure and tools required
+
+
+front end:
+	React JS framework - Next JS
+		State management: Redux
+
+backend server (RESTFul API)- Nest JS - a. Express b. Fastify
+	TypeORM/mongoose
+	
+	WebSocket/GRPC
+
+backend -- postgresql/mongodb
+
+
+a. Preparation stage
+b. execution stage
+
