@@ -1,7 +1,20 @@
+1st app:
 1. product model: id, name, price, description
 2. certain operations:
    a. add a new product (will be added into an array)
    b. search for products by name (partial) -- array
    c. delete a product (id)
    d. update a product (id, product)
+
+2nd app:
+1. employee model: 
+	a. value props: id, name, basic, da, hra
+	b. functional props: calculateSalary(<no args):returns number
+
+2. certain operations:
+   a. add a new employee(will be added into an array)
+   b. search for employees by name (partial) -- array
+   c. delete an employee (id)
+   d. update an employee (id, employee)
+   e. search by employee id (id)
 	
