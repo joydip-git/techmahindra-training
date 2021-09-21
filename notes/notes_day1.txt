@@ -31,6 +31,7 @@ backend server (RESTFul API)- Nest JS - a. Express b. Fastify
 
 backend -- postgresql/mongodb
 
+JS execution:
 
 a. Preparation stage
 b. execution stage
@@ -53,6 +54,8 @@ b. execution stage
 5. object creation:
 	a. object literal
 	b. function constructor
+
+6. modularity
 
 
 
