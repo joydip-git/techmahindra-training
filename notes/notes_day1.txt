@@ -35,3 +35,23 @@ backend -- postgresql/mongodb
 a. Preparation stage
 b. execution stage
 
+1. execution context: (EC)
+	- global execution: at the beginning (always)
+	- any function execution context (when the function is called)
+2. execution context stack (ECS):
+	- a stakc data structure where the ECs are stored at the top of each other. the topomost EC will be removed first
+
+3. Execution Context Object:
+	- this: refers to the "owner" of the global function/function
+		- browser runtime: window (be default)
+		- node runtime: global (by default)
+
+	- scope: access to all the variables of the current and other scopes
+	- variables: the variables/function declartions part of the current scope
+
+
+
+
+
+
+
