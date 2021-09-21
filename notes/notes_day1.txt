@@ -48,6 +48,11 @@ b. execution stage
 
 	- scope: access to all the variables of the current and other scopes
 	- variables: the variables/function declartions part of the current scope
+		- variable and functional hoisting
+4. this keyword: bind() method, arrow function (ES6 style)
+5. object creation:
+	a. object literal
+	b. function constructor
 
 
 

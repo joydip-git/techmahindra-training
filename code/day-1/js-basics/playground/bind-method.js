@@ -1,4 +1,4 @@
-'use strict'
+
 /*
 var joydipObject = {
 
@@ -19,6 +19,7 @@ console.log(res1)
 var res = joydipObject.print() //there is a 'preceding' object in this call and that is 'joydipObject'
 console.log(res)
 */
+'use strict'
 var people = [{
     personname: 'joydip',
     id: 1,
@@ -41,6 +42,7 @@ for (var i = 0; i < people.length; i++) {
     //if the function is not written using arrow function style
     var boundPrintFnRef = printFnRef.bind(people[i])
     printInfo(boundPrintFnRef)
+    //printInfo(printFnRef)
 }
 
 function printInfo(fnRef) {
