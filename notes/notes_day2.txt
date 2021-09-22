@@ -71,12 +71,36 @@ JS new features:
 	solution: supply a module-loader=> requirejs
 
 2. will the new features be supported in older browser?
+	answer: probably not.
+	solution: transpile latest styled JS => old styled JS (vanila) <=ES5
+
 3. should i always use CommonJS format for defining module exports and imports i browser-centric app?
 	answer: use whichever you like, BUT supply only AMD format module code to browser, IF YOU ARE USING REQUIRE JS as module loader for browser
+
+	any format (ES6) => AMD format
 
 4. apart from lite-server, do i have better dev-server
 5. is there a performance issue w.r.t my app?
 	-- create package (prod/dev) and then load into the browser
+
+X. transpile latest styled JS => old styled JS (vanila) <=ES5
+Y. any format (ES6) => AMD format
+
+transpiler s/w:
+babel, tsc
+
+dependency:
+complete, development
+
+Core package:@babel/core
+CLI package: @babel/cli
+babel plugins:
+	ES6-> AMD: @babel/plugin-transform-modules-amd
+
+presets: [array of plugins=> preset]
+	ES6,7,.. => <=ES5: @babel/preset-env
+
+
 
 
 
