@@ -1,0 +1,49 @@
+1. variables
+2. types of data
+3. operators
+4. statements
+5. function - declaration + expression
+6. object creation: literal syntax + constructor function
+
+7. internals:
+	a. execution context
+	b. stages: i. compilation stage ii. execution stage
+	c. variable hositing + function hoisting
+	d. this keyword
+	e. context binding - bind(), apply(), arrow function (ES6)
+
+8. architectural: 3-tier architecture (modularize)
+
+
+1. code needs to be modular (logical) -- done
+2. physical separation -- done
+3. interconnect all the files (NOT linking all files to *.html file)
+	concept: module concept in JS
+4. app to run in 
+	a. browser
+	b. non-browser
+
+A.
+Node JS, Node runtime, packages, JS engine
+
+1. creating application structure
+2. using tools for 
+	a. transpilation of code
+	b. creating production + development code
+	c. during development how to host in a dev-server
+
+
+i. Module in JS:
+----------------------------------
+	a single JS/TS/NS file === module
+	Node runtime creates an object to represent the file loaded in Node runtime=> module object
+
+ii. how to create a module and mention which members are exportable???
+	Module Formats: 
+	a. CommonJS (used by Node by default)
+			--> module.exports, require()
+	b. AMD (asynchronous module definition)
+	c. UMD (Universal module definition)
+	d. ES6 (import, export) --- 2015
+
+

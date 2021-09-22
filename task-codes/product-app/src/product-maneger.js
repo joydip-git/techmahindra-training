@@ -1,4 +1,6 @@
 'use strict'
+document.getElementById('p1').innerHTML = `<b>Hello</b>`
+
 //manager object
 const productManager = function () {
 

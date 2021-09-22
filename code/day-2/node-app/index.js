@@ -1,0 +1,10 @@
+const utilModuleMembers = require('./util')
+
+console.log('hello')
+// const res1 = utilModuleMembers.addFn(10, 20)
+const res1 = utilModuleMembers.add(10, 20)
+console.log(res1)
+const res2 = utilModuleMembers.subtract(10, 2)
+console.log(res2)
+// console.log('index module')
+// console.log(module)
