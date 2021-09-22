@@ -53,6 +53,7 @@ JS new features:
 	c. arrow function
 	d. class - constructor, properties (value properties), methods (functional properties), getter-setter (get/set)
 	e. templated string/string interpolation
-	f. object destructuring
+	f. spread operator
+	g. object destructuring
 
 
