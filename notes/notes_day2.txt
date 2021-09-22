@@ -46,4 +46,13 @@ ii. how to create a module and mention which members are exportable???
 	c. UMD (Universal module definition)
 	d. ES6 (import, export) --- 2015
 
+2015
+JS new features:
+	a. let
+	b. const
+	c. arrow function
+	d. class - constructor, properties (value properties), methods (functional properties), getter-setter (get/set)
+	e. templated string/string interpolation
+	f. object destructuring
+
 
