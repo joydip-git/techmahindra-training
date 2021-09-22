@@ -46,6 +46,15 @@ ii. how to create a module and mention which members are exportable???
 	c. UMD (Universal module definition)
 	d. ES6 (import, export) --- 2015
 
+iii. module-loader
+----------------------------
+understands module format and resolves dependencies amongst the files and load the files accordingly
+Node runtime has default common js module loader
+'module'
+
+	commonjs
+	requirejs
+
 2015
 JS new features:
 	a. let
@@ -55,5 +64,25 @@ JS new features:
 	e. templated string/string interpolation
 	f. spread operator
 	g. object destructuring
+
+
+1. browser runtime (unlike node runtime) is unable to understand require() method
+	answer: browser runtime does not support module feature and does not have any module loader hence
+	solution: supply a module-loader=> requirejs
+
+2. will the new features be supported in older browser?
+3. should i always use CommonJS format for defining module exports and imports i browser-centric app?
+	answer: use whichever you like, BUT supply only AMD format module code to browser, IF YOU ARE USING REQUIRE JS as module loader for browser
+
+4. apart from lite-server, do i have better dev-server
+5. is there a performance issue w.r.t my app?
+	-- create package (prod/dev) and then load into the browser
+
+
+
+
+
+
+
 
 
