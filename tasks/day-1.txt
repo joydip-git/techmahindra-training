@@ -9,7 +9,7 @@
 2nd app:
 1. employee model: 
 	a. value props: id, name, basic, da, hra
-	b. functional props: calculateSalary(<no args):returns number
+	b. functional props: calculateSalary(<no args>):returns number
 
 2. certain operations:
    a. add a new employee(will be added into an array)
