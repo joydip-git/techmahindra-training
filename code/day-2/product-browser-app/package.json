@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "simple app to demonstrate the modules and tools",
   "scripts": {
-    "transpile": "babel src --out-dir dist"
+    "transpile": "babel src --out-dir dist --watch",
+    "server": "lite-server",
+    "server:watch": "lite-server --watch",
+    "parallel": "concurrently",
+    "start:dev": "concurrently \"npm run transpile\" \"npm run server:watch\""
   },
   "author": "joydip",
   "license": "ISC",
@@ -11,6 +15,8 @@
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.5",
     "@babel/plugin-transform-modules-amd": "^7.14.5",
-    "@babel/preset-env": "^7.15.6"
+    "@babel/preset-env": "^7.15.6",
+    "concurrently": "^6.2.1",
+    "lite-server": "^2.6.1"
   }
 }

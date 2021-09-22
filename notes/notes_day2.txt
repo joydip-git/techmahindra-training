@@ -99,14 +99,3 @@ babel plugins:
 
 presets: [array of plugins=> preset]
 	ES6,7,.. => <=ES5: @babel/preset-env
-
-
-
-
-
-
-
-
-
-
-
