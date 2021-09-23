@@ -8,3 +8,11 @@
 	- extends, implements
 3. TypeScript
 4. node and express
+
+1. DNS resolver
+2. File System API
+3. Crypto
+4. zip compression
+worker_threads
+
+Promise
