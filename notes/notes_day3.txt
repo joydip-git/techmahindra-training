@@ -5,8 +5,8 @@
 	- async/await
 2. new features
 	- rest operator
-	- extends, implements
-3. TypeScript
+	- extends, super
+3. TypeScript: implements
 4. node and express
 
 1. DNS resolver

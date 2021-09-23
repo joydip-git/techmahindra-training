@@ -38,7 +38,8 @@ const callCalculate = async () => {
         console.log(error)
     }
 }
-callCalculate().then(r => console.log(r))
+// callCalculate().then(r => console.log(r))
+
 
 console.log('hello')
 
