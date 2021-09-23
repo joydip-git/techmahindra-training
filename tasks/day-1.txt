@@ -7,12 +7,21 @@
    d. update a product (id, product)
 
 2nd app:
-1. employee model: 
+1. 
+i. employee model: 
 	a. value props: id, name, basic, da, hra
 	b. functional props: calculateSalary(<no args>):returns number
 
+ii. developer model:
+	a. value props: id, name, basic, da, hra, incentive
+	b. functional props: calculateSalary(<no args>):returns number
+
+ii. hr model:
+	a. value props: id, name, basic, da, hra, gratuity
+	b. functional props: calculateSalary(<no args>):returns number
+
 2. certain operations:
-   a. add a new employee(will be added into an array)
+   a. add a new employee(will be added into an array) - 4 objects
    b. search for employees by name (partial) -- array
    c. delete an employee (id)
    d. update an employee (id, employee)
