@@ -1,0 +1,10 @@
+1. JS
+	- prototype
+	- callbacks
+	- promises
+	- async/await
+2. new features
+	- rest operator
+	- extends, implements
+3. TypeScript
+4. node and express
