@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "module": "AMD",
+        "target": "ES5",
+        "experimentalDecorators": true
+    }
+}
