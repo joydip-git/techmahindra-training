@@ -1,0 +1,51 @@
+1. Nest JS
+2. TypeORM
+
+3. React JS
+4. Next JS
+
+Node JS
+	- process and it's arguments
+	- event emitter
+	- creat a HTTP server 
+		- RESTFul API
+		- web application
+Express JS
+
+a. IO apps (reading /writing data)
+b. CLI tool (accept values from command line)
+c. server application
+	-receive request
+	-send response
+
+http://localhost:3000/
+http://localhost:3000/{value}
+
+
+http://..../flights?op=getFlightData
+
+http://..../flights 			GET			getAllFlightData()
+http://..../flights/{flightid} 		GET	flightid (RD)	getAFlightData(id)
+http://..../flights?flightid={flightid} GET	flightid (QS)	getAFlightData(id)
+http://..../payment 			POST			makePayment(obj)
+Request Body					{
+							card:{}
+							bankname:
+						}
+
+HTTP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
