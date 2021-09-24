@@ -33,7 +33,12 @@ Request Body					{
 							bankname:
 						}
 
-HTTP
+HTTP/1.1
+HTTP - verbs and methods
+
+REST - architectural pattern
+
+TCP/IP
 
 
 
