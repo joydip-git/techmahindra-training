@@ -1,20 +1,24 @@
-const fs = require('fs')
-const getData = (req, res) => {
-    res.end(JSON.stringify({ name: 'joydip', age: 23 }))
-}
-const getByName = (req, res) => {
-    const data = req.params.name
-    res.end(data)
-}
-const create = async (req, res) => {
-    //console.log(req.body)
-    const data = req.body
-    fs.writeFile(process.env.FILE_PATH, JSON.stringify(data), () => console.log('done'))
-    console.log('sending response')
-    res.end('hello')
+const { Container } = require('./DI')
+// const { DataService } = require('./service')
+class DataController {
+    constructor() {
+        //this.serviceRef = new DataService()
+        this.serviceRef = Container.create()
+    }
+    getData = (req, res) => {
+        res.end(JSON.stringify({ name: 'joydip', age: 23 }))
+    }
+    getByName = (req, res) => {
+        const data = req.params.name
+        res.end(data)
+    }
+    create = async (req, res) => {
+        //console.log(req.body)
+        const data = req.body
+        this.serviceRef.addData(data)
+        res.end('data added')
+    }
 }
 module.exports = {
-    getData,
-    getByName,
-    create
+    DataController
 }
