@@ -1,0 +1,66 @@
+1. controllers
+2. providers - register:
+3. modules - static & dynamic module
+4. middleware
+5. exception filters - custon exception filter
+6. pipes
+7. guards
+8. interceptors
+
+use cases:
+	a. register customer
+	b. login
+		- authenticate
+		- authorize
+	c. fetch products
+	d. 
+
+features:
+customer module
+	model: name, mobile no, dob, alternate no, <delivery_address>, <order_address>, <user>
+        model: doorNo, name, street, locality, city, state, country, pin, 
+user module:
+	model: email, pwd, user_name
+address module:???
+
+product module:
+	model: name, id/code, price, image, url, rating,...
+cart module:
+	model: <customer>, products (array of product)
+order module:
+	model: orderid, orderdate, products,...
+payment:
+	model:
+delivery:
+
+class A{}
+
+class B{ constructor(private a:A){}}
+
+typeorm:
+	a. externalize connection string
+		i.  ormconfig.json
+		ii. .env
+
+               DTO                  entity	DataMapper & ActiveRecord
+controller --> (NO)    service  -->         repository (typeorm)        --> pg/AWS DynamoDb/AWS SQS/ mysql
+
+
+1. left
+2. center
+3. right
+
+
+     application layer
+     port/ adapter
+     domain layer
+core domain
+	adapter
+	port
+
+
+
+
+	
+	
+	
