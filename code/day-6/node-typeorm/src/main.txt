@@ -1,0 +1,21 @@
+import { Connection, createConnection, getConnection, QueryRunner } from 'typeorm'
+
+function open(fn: any) {
+    createConnection()
+        .then(
+            (con) => {
+                console.log(con.isConnected)
+                fn(con)
+            }, (err) => {
+                console.log(err)
+            }
+        )
+}
+open(close)
+function close(con: Connection) {
+    con.close()
+    console.log(con.isConnected)
+}
+// (() => {
+//     const conn = getConnection()
+// })()
