@@ -1,0 +1,17 @@
+postgreSQL
+open source, object-realtional database
+typeorm
+
+application
+
+entity class === schema of records in a table
+object of entity class === record in a table
+collections of entity class === records in the table
+
+repository class === table
+  - methods
+  - properties
+
+a. Active Record
+	- query methods inside in the model/entity itself
+b. Data Mapper pattern

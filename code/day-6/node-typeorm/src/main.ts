@@ -1,6 +1,42 @@
-import { Connection, createConnection, createConnections, getConnection, QueryRunner } from 'typeorm'
+import { Connection, ConnectionManager, createConnection, createConnections, getConnection, getConnectionManager, QueryRunner } from 'typeorm'
+
+let connectionManager: ConnectionManager;
+function create() {
+    connectionManager = getConnectionManager();
+    const con = connectionManager.create({
+        "name": "appDbCon",
+        "type": "postgres",
+        "host": "localhost",
+        "port": 5432,
+        "username": "postgres",
+        "password": "admin",
+        "database": "appdb",
+        "synchronize": true,
+        "logging": false,
+        "entities": [
+            "src/entities/*.entity{.ts,.js}"
+        ]
+    })
+    return con;
+}
+
+function establishConnection() {
+    let con = create()
+    return con.connect()
+}
 
 
+establishConnection()
+    .then(
+        c => {
+            console.log(c.isConnected)
+            //connectionManager.get()
+        },
+        e => console.log(e)
+    )
+
+
+/*
 function open() {
     createConnections()
         .then(
@@ -12,7 +48,7 @@ function open() {
         )
 }
 open()
-
+*/
 // function open(conname: string) {
 //     createConnection(conname)
 //         .then(
