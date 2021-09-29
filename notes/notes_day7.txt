@@ -1,0 +1,14 @@
+hexagonal architecture
+	- DDD
+	- CQRS
+	- singleton
+	- IOC with DI (Nest JS)
+
+pipe:
+	a. validation
+	b. transformation
+
+ValidationPipe
+ParseIntPipe
+ParseFloatPipe
+
