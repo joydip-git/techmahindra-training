@@ -1,0 +1,112 @@
+1. interceptors
+	- 
+2. decorators
+	- 
+3. authentication
+	- signin
+	- signup
+	- signout
+	- rejecting requests based on authentication
+	- getting current user
+
+4. permission system
+	- authorization
+
+5. another controller
+	- typeorm relations
+
+6. microservices approach 
+
+hexagonal arch 
+
+controller-(command type)-adapter - model type -(I1)domain service - model type- core service -entity type
+								model
+
+
+modules
+providers
+pipes
+interceptors - execution context - switchHttp(), switchTo.., swicth 
+decorators
+exceptions and exception filters - HttpException/RpcException (BaseException...)
+middleware
+
+
+nest js: testing - unit and e2e  
+
+
+
+class Xinterceptor implements NestInterceptor{
+	constructor(dto:ClassConstructor){}
+
+	intercept(){}
+
+}
+
+@UseInterceptors(Xinterceptor)
+@Get()
+RH1(...){}
+
+@UseInterceptors(Xinterceptor)
+@Get()
+RH2(...){}
+
+
+decorator
+
+function UseSeializer(dto:ClassConstructor){
+	//something
+	return UseInterceptors(new SerializerInterceptor(dto))
+}
+
+decorators and main.ts file exists out of DI system
+
+
+Interceptor is within the DI scope
+
+creating connection
+creating repos in typeorm
+ActiveRecord --> Entity extends BaseEntity .save/create/remove
+
+Data Mapper (Repository)
+a. get the repo created by typeorm for a particular table (RepoManager--Repository<T>)
+connection.getRepository(User)
+
+b. create your own custom repo for a table (inherit from Repository<T>)
+	class MyRepo extends Repository<User>{}
+	connection.getCustomeRepository(MyRepo)
+
+class MyRepo1 implements IRepo
+{
+	
+}
+
+Partial<T>
+Optional<T> <-- typescript-optional
+.get()
+.empty<t>()
+.of(...)
+					   Factory
+<=(dto)<=register(@Body() data:command) => adapter =>(domain model)<=Domain service=>(domain 										model)<=core service (domain model)=>mapper<=entity
+
+login(@Body() data:command)
+logout()
+
+updatePassword(email,pwd)
+updateAddress()
+
+CQS
+publisher/subscriber (event)
+ - event bus (RabbitMQ/Kafka)
+ - 
+message pattern
+
+gateway - payloads
+
+
+
+
+
+
+
+
