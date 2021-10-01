@@ -1,0 +1,67 @@
+// import { CallHandler, ExecutionContext, NestInterceptor } from "@nestjs/common";
+// import { plainToClass } from "class-transformer";
+// import { Observable } from "rxjs";
+// import { map } from 'rxjs/operators'
+// import { UserDto } from "../dtos/user.dto";
+
+// export class SerializerInterceptor implements NestInterceptor {
+//     intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
+
+//         // const converted = [1, 2, 3, 4].map(
+//         //     (x) => x * 5
+//         // )
+//         return next.handle().pipe(
+//             map(d => {
+//                 console.log(d)
+//                 return plainToClass(UserDto, d, {
+//                     excludeExtraneousValues: true
+//                 })
+//             })
+//         )
+//     }
+// }
+
+//v2:
+import { CallHandler, ExecutionContext, NestInterceptor, UseInterceptors } from "@nestjs/common";
+import { plainToClass } from "class-transformer";
+import { Observable } from "rxjs";
+import { map } from 'rxjs/operators'
+
+// export interface ClassConstructor {
+//     new(...args: []): {}
+// }
+export type ClassConstructor = {
+    new(...args: []): {}
+}
+// type clsType = {
+//     name: string;
+//     id?: number;
+// }
+// const x:clsType={}
+
+export function UseSeializer(dto: ClassConstructor) {
+    //something
+    return UseInterceptors(new SerializerInterceptor(dto))
+}
+
+// const x = createMetadataDecorator()
+
+export class SerializerInterceptor implements NestInterceptor {
+    constructor(private dto: ClassConstructor) {
+
+    }
+    intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
+
+        // const converted = [1, 2, 3, 4].map(
+        //     (x) => x * 5
+        // )
+        return next.handle().pipe(
+            map(d => {
+                console.log(d)
+                return plainToClass(this.dto, d, {
+                    excludeExtraneousValues: true
+                })
+            })
+        )
+    }
+}
