@@ -1,0 +1,6 @@
+state, passing functions from one component to another through props
+life-cycle events
+HOC
+restful api
+redux
+routing
