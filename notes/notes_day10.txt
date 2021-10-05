@@ -1,0 +1,16 @@
+ProductsController (MS)
+	- Adapters
+		- IProductsService (ProductsRepository)
+			- Typeorm service (Product)
+
+Ptr
+
+obs.subscribe(
+(d)=>{},
+(e)=>{},
+()=>{}
+
+
+prom.then(
+(d)=>{},
+(e)=>{}

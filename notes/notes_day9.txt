@@ -1,0 +1,74 @@
+1. microservices in nest js
+	 - communication:
+		- tcp/nats/
+
+Listener config:
+a. install microservices package: @nestjs/microservices
+b. chhose your message broker
+c. install message broker (ex: RabbitMQ, npm install amqplib amqp-connection-manager)
+d. configure main.ts/*.ts
+import { NestFactory } from '@nestjs/core';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { ConsumerModule } from './service-listener/consumer.module';
+
+async function bootstrap() {
+    const app = await NestFactory.createMicroservice<MicroserviceOptions>(ConsumerModule, {
+        transport: Transport.RMQ,
+        options: {
+            urls: ['amqps://rtbaltjd:IpDg4VaDjAHSy3T4VRC16_oXPRNXk7gg@elk.rmq2.cloudamqp.com/rtbaltjd'],
+            queue: 'test_queue',
+            queueOptions: {
+                durable: false
+            }
+        }
+    })
+    app.listen()
+}
+bootstrap();
+
+e. declare some 'event-handlers' with @EventPattern('<event-name>') or @MessagePattern('<message-pattern-key>')
+
+
+Client App:
+a. install microservices package: @nestjs/microservices
+b. chhose your message broker
+c. install message broker (ex: RabbitMQ, npm install amqplib amqp-connection-manager)
+d. configure in module (root) the ClientModule.register([...])
+note: same instance of message broker (same urls property value), same queue configuration (same queue name)
+e. provide value for 'name' during ClientModule configuration  for DI  of ClientProxy in Controller/service etc.
+
+d. use queue:
+	1. use emit() method of ClientProxy for event based comm
+	2. use send() method of ..... for message-based comm
+
+
+2. login/logout --> (cookie)/json web token
+	- auth guard
+	 - interceptor
+	 - decorator
+
+
+{
+	"pattern":"update_data",
+	"data":{
+		"message":"hello everyone"
+         }
+}
+
+@EP     @MP
+
+
+1. register as customer
+2. login: view products, search filter,
+3. view products
+4. admin login
+	- add, update, delete, view, search, sort products
+
+
+
+React JS (Next Js) + Microservices (Nest JS) +  TypeORM + Postgres
+
+
+
+
+

@@ -1,0 +1,56 @@
+Single Page Application (SPA)
+React JS
+	- what?
+	- how to create a. scratch b. using tool
+	- components
+	- props and state
+	- routing
+	- lifecycle events and hooks
+	- hoc and react hooks
+	- render prop
+	- error handling
+	- map, key (list of items)
+	- react with redux
+Next JS
+	- routing (file-based)
+	- pre-rendering
+	- api routes
+	- css modules
+	- authentication
+	- dev and prod mode
+
+SPA:
+
+
+1. did I use new features of JS? Yes
+	=> transpile the older JS version code
+	babel:
+	@babel/core @babel/cli
+	preset: (collection of plugins) @babel/preset-env
+2. Did you use react specific features (JSX, built-in methods, objects...)? yes
+	=> convert JSX into JS
+	preset: @babel/preset-react
+	=> supply the definitions of bulit-in artifacts to V8
+3. is the code written using modular concept and which module format? yes/ES6
+	=> convert module into AMD and also supply module loader s/w to browser
+	plugin: @.....
+	module loader: requirejs
+
+4. part of the packaging: react-runtime
+
+React Js:
+	a. create react from scratch
+	b. advantages and disadvantages of React
+	c. React (library) vs. Angular (framework)
+	d. SPA
+	e. SPA vs server-side techs
+	f. create-react-app
+	g. how to pass data from one component to other (properties/attributes)
+	h. how to do property checking (type, rules) using 'prop-types'
+
+
+
+
+
+
+
