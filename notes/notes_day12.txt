@@ -4,3 +4,68 @@ HOC
 restful api
 redux
 routing
+
+state - class component
+
+functional component/statelesss component/presentational component
+class component/stateful component
+
+export function Hello(){
+	
+}
+
+export class Welcome extends Component{
+
+}
+
+class state vs. useState() hook state
+1. class state property must be assigned an object, state hook provides state of any nature
+
+
+//this is how useState hook/ state hook works 
+function useState(initialState){
+	let state=initialState={a:0, b:0}
+	const fnToUpdate=(newState)=>{
+		state=newState={a:100, b:0}
+	}
+	return [state,fnToUpdate]	
+}
+
+const [data,setData]=useState({a:0, b:0})
+clg(data)=>a:0,b:0
+setData({a:100})
+clg(data)=>a:100
+
+//setData({a:100,b:0})
+setData((oldState)=>{
+	return {
+	 ...oldState,
+	 a:100
+	}
+   }
+)
+
+//no version like this
+setData((oldState, props)=>{
+	return {
+	 ...oldState,
+	 a:oldState.a+props.x
+	}
+   }
+)
+
+setState({value:10})
+object:
+state={ value:0, x:20}
+function setState(newState){
+	let fresh={
+		...this.state,
+		...newState
+	}
+	this.state = fresh
+}
+
+state hook: const [someState,setSomeState] = useState(initialState)
+
+
+
