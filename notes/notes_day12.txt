@@ -67,5 +67,88 @@ function setState(newState){
 
 state hook: const [someState,setSomeState] = useState(initialState)
 
+lifecyle:
+	state={
+		products:[]
+	}
+	mounting: 
+	
+	constructor -- this.state/this.method = this.method.bind(this)
+	**static getDerivedStateFromProps(initialState,currentProps)=> return new state {}
+	 => reset the state based on received props
+	every time
+
+	render()=> RE
+	{
+		<table>
+	}
+	componentDidMount()=>void
+	{
+		fetch(....)
+			.then(
+				(result)=>{ 
+					result.json().
+						then((data)=>this.setState({products:data}))}
+		)
+	}
+
+
+	update:
+	static getDerivedStateFromProps	
+	shouldComponentUpdate(newProps,newState)=>boolean=> whether render() and others followed by render should happen
+	{
+		if(this.props.productId===newProps.productId || this.state!==null) return false else return true
+	}
+	
+	render
+	**getSnapshotBeforeUpdate
+	componentDidUpdate(oldProps,oldState)=>void
+	{
+		if(this.props.productId(2)===oldProps.productId(1))
+	fetch(....)
+			.then(
+				(result)=>{ 
+					result.json().
+						then((data)=>this.setState({products:data}))}
+		)
+	}
+
+
+
+
+	error:
+	static getDerivedStateFromError(error)=>new state [before render]
+	{
+		return { errorMessage:error}
+	}
+	render(){if(this.state.errorMessage!==''){} else {}}
+	componentDidCatch(error,info)=>void [after render]
+	{
+		this.setState({errorMessage:error})
+	}
+
+
+	unmount:
+	componentWillUnmount()=>void
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
