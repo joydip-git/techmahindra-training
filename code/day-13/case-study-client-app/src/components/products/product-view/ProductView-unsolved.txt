@@ -1,0 +1,66 @@
+import { AxiosResponse } from 'axios';
+import React, { useState } from 'react'
+import { Optional } from 'typescript-optional';
+//import { RouteComponentProps } from 'react-router';
+import ProductViewModel from '../../../models/productview.model';
+import { getProductById } from '../../../service/product-service';
+
+// type ProductDataStateType = ProductViewModel | never | null
+// type ErrorStateType = string | null
+// type LoadingStateType = boolean
+// type RouteParamsType = {
+//     id: string,
+// }
+// const ProductView = (props: RouteComponentProps<RouteParamsType>) => {
+
+const ProductView = (props: any) => {
+    /**
+     * {
+     *  history:{},
+     *  location:{},
+     *  match:{ params: {id:'10',}}
+     * }
+     */
+    const [productState, setProductState] = useState<Optional<ProductViewModel>>(
+        Optional.empty())
+    const [errorState, setErrorState] = useState<string>('')
+    const [loadingState, setLoadingState] = useState<boolean>(true)
+
+    const { id } = props.match.params
+
+    let design: any;
+    if (loadingState) {
+        design = <p>Loading...</p>;
+        return design;
+    }
+    if (errorState !== '') {
+        design = <p>{errorState}</p>;
+        return design;
+    }
+    if (productState.isEmpty()) {
+        design = <p>Not Found</p>;
+        return design;
+    }
+
+    getProductById(parseInt(id))
+        .then(
+            (resp: AxiosResponse) => {
+                console.log(resp.data);
+                const data: ProductViewModel = resp.data as ProductViewModel
+                console.log(data);
+                setProductState(Optional.of(data))
+                setErrorState('')
+                setLoadingState(false)
+            },
+            (err: any) => {
+                setProductState(Optional.empty())
+                setErrorState(err.message)
+                setLoadingState(false)
+            }
+        )
+    design = <p>{productState.get().productName}</p>
+
+    return design
+}
+
+export default ProductView

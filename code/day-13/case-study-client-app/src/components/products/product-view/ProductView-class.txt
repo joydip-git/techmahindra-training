@@ -1,0 +1,63 @@
+import { AxiosResponse } from 'axios'
+import React, { Component } from 'react'
+import { Optional } from 'typescript-optional'
+import ProductViewModel from '../../../models/productview.model'
+import { getProductById } from '../../../service/product-service'
+
+type ProductViewStateType = {
+    product: Optional<ProductViewModel>,
+    errorMessage: string;
+    loading: boolean
+}
+
+export default class ProductView extends Component<any, ProductViewStateType> {
+    constructor(props: any) {
+        super(props)
+        console.log('created');
+    }
+    state = {
+        product: Optional.empty<ProductViewModel>(),
+        errorMessage: '',
+        loading: true
+    }
+    render() {
+        const { errorMessage, loading, product } = this.state
+        let design: any;
+        if (loading) {
+            design = <p>Loading...</p>;
+        } else if (errorMessage !== '') {
+            design = <p>{errorMessage}</p>;
+            return design;
+        } else if (product.isEmpty()) {
+            design = <p>Not Found</p>;
+        } else {
+            design = <p>{product.get().productName}</p>
+        }
+        return design
+    }
+    componentDidMount() {
+        const { id } = this.props.match.params
+        getProductById(parseInt(id))
+            .then(
+                (resp: AxiosResponse) => {
+                    console.log(resp.data);
+                    const data: ProductViewModel = resp.data as ProductViewModel
+                    this.setState({
+                        product: Optional.of(data),
+                        errorMessage: '',
+                        loading: false
+                    })
+                },
+                (err: any) => {
+                    this.setState({
+                        product: Optional.empty<ProductViewModel>(),
+                        errorMessage: err.message,
+                        loading: false
+                    })
+                }
+            )
+    }
+    componentWillUnmount() {
+        console.log('destroyed');
+    }
+}
