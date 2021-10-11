@@ -1,0 +1,47 @@
+import React, { Dispatch, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProductsAsync } from '../../redux/async-operations/index'
+import Link from 'next/link'
+import { combinedStateType } from '../../redux/reducers'
+
+const ProductList = () => {
+    const {
+        loading: loadingValue,
+        error: errorValue,
+        products: productsValue
+    } = useSelector((combinedState: combinedStateType) => combinedState.productsState)
+
+    const dispatchFnRef: Dispatch<any> = useDispatch()
+    useEffect(
+        () => {
+            dispatchFnRef(getProductsAsync)
+        }, []
+    )
+    let design
+    if (loadingValue) {
+        design = <p>Loading...</p>
+    } else if (errorValue !== '') {
+        design = <p>{errorValue}</p>
+    } else if (productsValue.length === 0) {
+        design = <p>No products found</p>
+    } else {
+        design = (
+            <ol>
+                {
+                    productsValue.map(
+                        (p) => {
+                            return (
+                                <Link key={p.productId}
+                                    href={`/products/${p.productId}`} passHref>
+                                    <li>{p.productName}</li>
+                                </Link>
+                            )
+                        }
+                    )
+                }
+            </ol>
+        )
+    }
+    return design
+}
+export default ProductList

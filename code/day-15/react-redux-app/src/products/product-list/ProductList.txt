@@ -1,0 +1,58 @@
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { getProductsAsync } from '../../redux/async-operations/index'
+
+
+const ProductList = (props) => {
+    const { loadingValue, errorValue, productsValue, getProducts } = props
+    useEffect(
+        () => {
+            getProducts()
+        }, []
+    )
+    let design
+    if (loadingValue) {
+        design = <p>Loading...</p>
+    } else if (errorValue !== '') {
+        design = <p>{errorValue}</p>
+    } else if (productsValue.length === 0) {
+        design = <p>No products found</p>
+    } else {
+        design = (
+            <ol>
+                {
+                    productsValue.map(
+                        (p) => {
+                            return (
+                                <Link key={p.productId}
+                                    to={`/products/${p.productId}`}>
+                                    <li>{p.productName}</li>
+                                </Link>
+                            )
+                        }
+                    )
+                }
+            </ol>
+        )
+    }
+    return design
+}
+const mapStatePropsToCompProps = (combinedState) => {
+    return {
+        loadingValue: combinedState.productsState.loading,
+        errorValue: combinedState.productsState.error,
+        productsValue: combinedState.productsState.products
+    }
+}
+const mapStoreDispatchToCompProps = (disptachFnRef) => {
+    return {
+        getProducts: () => disptachFnRef(getProductsAsync)
+    }
+}
+
+const connetToComponent = connect(
+    mapStatePropsToCompProps,
+    mapStoreDispatchToCompProps
+)
+export default connetToComponent(ProductList)
