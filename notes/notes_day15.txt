@@ -1,0 +1,5 @@
+1. pre-rendering and data fetching
+	- static site generation (SSG) and data fetching
+	- server-side generation (SSG) and data fetching
+	- incremental static generation/rendering (ISR) and data fetching
+	- client-side data fetching
